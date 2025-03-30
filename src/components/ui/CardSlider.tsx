@@ -61,10 +61,10 @@ const CardSlider = ({ projects }: { projects: Array<{
         }, 5000); // Change slide every 5 seconds
         
         return () => clearInterval(interval);
-    }, [currentIndex, navigateSlide]);
+    }, [currentIndex]);
     
     return (
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden w-full flex flex-col items-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                     key={currentIndex}
@@ -73,6 +73,7 @@ const CardSlider = ({ projects }: { projects: Array<{
                     initial={direction === "next" ? "hiddenRight" : "hiddenLeft"}
                     animate="visible"
                     exit="exit"
+                    className="w-full flex justify-center"
                 >
                     <Card
                         src={projects[currentIndex].src}
@@ -87,10 +88,10 @@ const CardSlider = ({ projects }: { projects: Array<{
             </AnimatePresence>
             
             {projects.length > 1 && (
-                <div className="flex justify-center gap-4 pb-4">
+                <div className="flex justify-center items-center gap-4 pb-4 w-full mt-4">
                     <motion.button
                         onClick={() => navigateSlide("prev")}
-                        className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-light-accent hover:dark:bg-dark-accent text-gray-700 dark:text-gray-200 hover:text-white"
+                        className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-light-accent hover:dark:bg-dark-accent text-gray-700 dark:text-gray-200 hover:text-white md:p-3"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Projeto anterior"
@@ -119,7 +120,7 @@ const CardSlider = ({ projects }: { projects: Array<{
                     </div>
                     <motion.button
                         onClick={() => navigateSlide("next")}
-                        className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-light-accent hover:dark:bg-dark-accent text-gray-700 dark:text-gray-200 hover:text-white"
+                        className="p-2 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-light-accent hover:dark:bg-dark-accent text-gray-700 dark:text-gray-200 hover:text-white md:p-3"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label="Próximo projeto"

@@ -12,6 +12,8 @@
   html {
     @apply scroll-smooth;
     font-size: 16px;
+    min-height: 100dvh;
+    overflow-x: hidden;
   }
 
   body {
