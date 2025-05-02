@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Menu, Download, Github, Linkedin, Mail } from "lucide-react";
 
-const Sidebar = () => {
+const Socials = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const items = [
@@ -16,7 +16,7 @@ const Sidebar = () => {
     return (
         <>
             {/* Sidebar para telas médias e grandes */}
-            <aside className={`hidden sm:flex fixed ${isOpen ? 'w-40 items-start px-5' : 'w-16 items-center'} h-screen bg-black py-10 space-y-6 rounded-tr-3xl rounded-br-3xl shadow-lg flex-col justify-between transition-all duration-300`}>
+            <aside className={`hidden z-10 sm:flex fixed ${isOpen ? 'w-40 items-start px-5' : 'w-16 items-center'} h-screen bg-black py-10 space-y-6 rounded-tr-3xl rounded-br-3xl shadow-lg flex-col justify-between transition-all duration-300`}>
                 <button onClick={() => setIsOpen(!isOpen)}>
                     <Menu className="w-6 h-6 text-gray-400 hover:text-green-400 transition-colors duration-300" />
                 </button>
@@ -50,4 +50,4 @@ const Sidebar = () => {
     );
 };
 
-export default Sidebar;
+export default Socials;
